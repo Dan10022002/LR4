@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+
+void Insertion_sort(std::vector<int>& Vec,int &s){
+    while ((Vec[s]<Vec[s-1]) && (s>0)){
+        std::swap(Vec[s],Vec[s-1]);
+        s-=1;
+        }
+    }
+
+int main()
+{
+    std::cout << "Hi!" << std::endl;
+    std::vector<int> Vec;
+    for (int h=0;h<30;++h) {
+        int k = (std::rand() % 201) - 100;
+        Vec.push_back(k);
+        int s=h;
+        Insertion_sort(Vec,s);
+    }
+    for (int i : Vec) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    return 0;
+}
