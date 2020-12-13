@@ -2,7 +2,7 @@
 #include <vector>
 #include <cstdlib>
 
-int part(std::vector<int> &Vec,int &s,int &k){
+int part(std::vector<int> &Vec,int &k){
     int p=Vec[k];
     int x=0;
     int i,t;
@@ -22,7 +22,7 @@ int part(std::vector<int> &Vec,int &s,int &k){
 
  void Quick_sort(std::vector<int> &Vec,int s,int k){
     if(s<k){
-         int x=part(Vec,s,k);
+         int x=part(Vec,k);
              Quick_sort(Vec,s,x-1);
              Quick_sort(Vec,x+1,k);
     }
