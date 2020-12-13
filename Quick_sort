@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+
+int part(std::vector<int> &Vec,int &s,int &k){
+    int p=Vec[k];
+    int x=0;
+    int i,t;
+    for(i=0;i<k;i++){
+    	if(Vec[i]<=p){
+            t=Vec[i];
+            Vec[i]=Vec[x];
+            Vec[x]=t;
+            x++;
+        }
+     }
+      t=Vec[k];
+      Vec[k]=Vec[x];
+      Vec[x]=t;
+     return x;
+ }
+
+ void Quick_sort(std::vector<int> &Vec,int s,int k){
+    if(s<k){
+         int x=part(Vec,s,k);
+             Quick_sort(Vec,s,x-1);
+             Quick_sort(Vec,x+1,k);
+    }
+}
+
+int main(){
+    std::cout << "Hi!" << std::endl;
+    std::vector<int> Vec;
+    for (int h=0;h<30;++h) {
+        int k = (std::rand() % 201) - 100;
+        Vec.push_back(k);
+    }
+    int n=30;
+    int k=n-1;
+    for (int i : Vec) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    Quick_sort(Vec,0,k);
+    for (int i : Vec) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    return 0;
+}
