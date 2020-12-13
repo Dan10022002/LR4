@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <cstdlib>
+
+void Bubble_sort(std::vector<int>& Vec){
+   for (int i=0;i<Vec.size()-1;++i){
+        for (int h=1;h<Vec.size();h++){
+            int t=Vec[h];
+            int k=Vec[h-1];
+            if (k>t){
+                std::swap (Vec[h],Vec[h-1]);
+            }
+        }
+   }
+   for (int i : Vec) {
+    std::cout << i << " ";
+   }
+   std::cout << "\n";
+}
+
+int main()
+{
+    std::cout << "Hi!" << std::endl;
+    std::vector<int> Vec;
+    for (int h=0;h<30;++h) {
+        int k = (std::rand() % 201) - 100;
+        Vec.push_back(k);
+    }
+    for (int i : Vec) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+    Bubble_sort(Vec);
+    return 0;
+}
